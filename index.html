@@ -7,39 +7,70 @@
 <body>
 		测试页面
 		<p id="openApp" >APK客户端下载链接</p>
-
+		<!--<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>-->
 		<script type="text/javascript">
-
-					function android(){
-
-						if
-						(navigator.userAgent.match(/android/i)) {
+					/*function android(){
+						if (navigator.userAgent.match(/android/i)) {
 							window.location.href = "wake://";
 							if(window.location.href=="wake://"){
 								return;
 							}
 							timer=setTimeout(function(){
-								window.location.href = "http://www.wandoujia.com/apps/com.ibg100.shop"; /***打开app的协议，有安卓同事提供***/
+								window.location.href = "http://www.wandoujia.com/apps/com.ibg100.shop"; /!***打开app的协议，有安卓同事提供***!/
 							},2000);
 
 						}
-						 /***打开app的协议，有安卓同事提供***/
+						 /!***打开app的协议，有安卓同事提供***!/
 						if
 						(navigator.userAgent.match(/(iPhone|iPod|iPad);?/i))  {
 							window.location.href = "wake://";
 							if(window.location.href=="wake://"){
 								return;
 							}
-							timer=setTimeout(function(){
-								window.location.href = "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8"; /***打开app的协议，有安卓同事提供***/
-							},2000);
+							if("wake://".indexOf(window.location.href)<-1){
+								timer=setTimeout(function(){
+									window.location.href = "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8"; /!***打开app的协议，有安卓同事提供***!/
+								},2000);
+							}
+
 
 						}
 
-			}
+			}*/
 
-			var openApp=document.getElementById("openApp");
-			openApp.onclick=android;
+					function openApps(){
+						var ua = window.navigator.userAgent.toLowerCase();
+						//微信
+						if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+							window.location.href='downLoadForPhone';
+						}else{//非微信浏览器
+							if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+								var loadDateTime = new Date();
+								window.setTimeout(function() {
+									var timeOutDateTime = new Date();
+									if (timeOutDateTime - loadDateTime < 5000) {
+										window.location.href= "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8";//ios下载地址
+									} else {
+										window.close();
+									}
+								},30);
+								window.location = "wake://";
+							}else if (navigator.userAgent.match(/android/i)) {
+								var state = null;
+								try {
+									window.location = 'wake://';
+									setTimeout(function(){
+										window.location.href= "http://www.wandoujia.com/apps/com.ibg100.shop"; //android下载地址
+
+									},500);
+								} catch(e) {}
+							}
+						}
+					}
+
+
+					var openApp=document.getElementById("openApp");
+			openApp.onclick=openApps;
 </script>
 
 
