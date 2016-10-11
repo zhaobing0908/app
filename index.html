@@ -14,14 +14,14 @@
 		
 		//判断是否是android设备浏览器	if (navigator.userAgent.match(/android/i)) {
 
-
+		if (navigator.userAgent.match(/android/i)) {
 		document.getElementById('openApp').onclick = function(e) {
 			// 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
-			 if (navigator.userAgent.match(/android/i)) {
+			 
 			// 否则打开a标签的href链接
-			var ifrSrc = 'testjs://platformapi/startApp?name=tom&age=18';
+			var ifrSrc = 'http://www.wandoujia.com/apps/com.ibg100.shop';
 			if (!ifrSrc) {
-				$("a").attr("href","http://www.wandoujia.com/apps/com.ibg100.shop")
+				return;
 
 			}
 			var ifr = document.createElement('iframe');
