@@ -38,19 +38,20 @@
 
 			}*/
 
-					function openApps(){
-						var ua = window.navigator.userAgent.toLowerCase();
+					function openApps() {
+						/*var ua = window.navigator.userAgent.toLowerCase();
 						//微信
 						if(ua.match(/MicroMessenger/i) == 'micromessenger'){
 							window.location.href='downLoadForPhone';
-						}else{//非微信浏览器
+						}else{//非微信浏览器*/
 							if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
 								var loadDateTime = new Date();
 								window.setTimeout(function() {
 									var timeOutDateTime = new Date();
 									if (timeOutDateTime - loadDateTime < 5000) {
 										window.location.href= "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8";//ios下载地址
-									} else {
+									}
+									else {
 										window.close();
 									}
 								},30);
@@ -63,10 +64,14 @@
 										window.location.href= "http://www.wandoujia.com/apps/com.ibg100.shop"; //android下载地址
 
 									},500);
-								} catch(e) {}
+								} catch(
+										e) {}
 							}
-						}
+						/*}*/
 					}
+
+
+
 
 
 					var openApp=document.getElementById("openApp");
