@@ -6,20 +6,23 @@
 	</head>
 	<body>
 		测试页面
-		<a id="openApp" >APK客户端下载链接</a>
+		<a href="" id="openApp" >APK客户端下载链接</a>
+		<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
 		
 		//ios判断  if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) 
 		
 		//判断是否是android设备浏览器	if (navigator.userAgent.match(/android/i)) {
-	if (navigator.userAgent.match(/android/i)) {
+
 
 		document.getElementById('openApp').onclick = function(e) {
 			// 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+			 if (navigator.userAgent.match(/android/i)) {
 			// 否则打开a标签的href链接
 			var ifrSrc = 'testjs://platformapi/startApp?name=tom&age=18';
 			if (!ifrSrc) {
-				return;
+				$("a").attr("href","http://www.wandoujia.com/apps/com.ibg100.shop")
+
 			}
 			var ifr = document.createElement('iframe');
 			ifr.src = ifrSrc;
