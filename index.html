@@ -68,9 +68,9 @@
 
 								}else{
 
-									if(window.location.href=="wake://"||"wake://".indexOf(window.location.href)>-1){
-										wClose();
-									}
+									window.onunload=function(){
+										wClose()
+									};
 									window.location = "wake://";
 
 								}
