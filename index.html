@@ -37,23 +37,31 @@
 						}
 
 			}*/
+					function loadUrl(){
+						var loadDateTime = new Date();
+						window.setTimeout(function() {
+							var timeOutDateTime = new Date();
+							if (timeOutDateTime - loadDateTime > 5000) {
+								window.location.href= "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8";//ios下载地址
+							}
+							else {
+								wClose()
+							}
+						},5000);
+					}
 
-					function openApps() {
+					function wClose(){
+						window.history.back();
+						WeixinJSBridge.call('closeWindow');
+						window.close();
+						self.close();
+					}
 
+			function openApps() {
 
-							if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-								var loadDateTime = new Date();
-								window.setTimeout(function() {
-									var timeOutDateTime = new Date();
-									if (timeOutDateTime - loadDateTime < 5000) {
-										window.location.href= "https://itunes.apple.com/us/app/guo-shang-yi-gou/id1098039649?mt=8";//ios下载地址
-									}
-									else {
-										WeixinJSBridge.call('closeWindow');
-										window.close();
-										self.close();
-									}
-								},1000);
+				if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+
+					loadUrl();
 								var ua = window.navigator.userAgent.toLowerCase();
 								//微信
 								if(ua.match(/MicroMessenger/i) == 'micromessenger'){
@@ -72,7 +80,7 @@
 									setTimeout(function(){
 										window.location.href= "http://www.wandoujia.com/apps/com.ibg100.shop"; //android下载地址
 
-									},500);
+									},3000);
 								} catch(e) {
 
 								}
