@@ -55,13 +55,15 @@
 								//微信
 								if(ua.match(/MicroMessenger/i) == 'micromessenger'){
 									alert("请点击右上角按钮，使用浏览器打开")
-									window.location = "wake://";
+									
+								}else{
+									window.location.href = "wake://";
 								}
 
 							}else if (navigator.userAgent.match(/android/i)) {
 								var state = null;
 								try {
-									window.location = 'wake://';
+									window.location.href= 'wake://';
 									setTimeout(function(){
 										window.location.href= "http://www.wandoujia.com/apps/com.ibg100.shop"; //android下载地址
 
