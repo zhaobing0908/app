@@ -54,10 +54,10 @@
 								var ua = window.navigator.userAgent.toLowerCase();
 								//微信
 								if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-									window.location.href='http://www.wandoujia.com/apps/com.ibg100.shop';
-								}else{//非微信浏览器
 									alert("请点击有上角按钮，使用浏览器打开");
-								window.location = "wake://";}
+									window.location = "wake://";}
+								}//非微信浏览器
+
 							if (navigator.userAgent.match(/android/i)) {
 								var state = null;
 								try {
@@ -70,7 +70,7 @@
 
 								}
 							}
-						}
+
 					}
 
 					var openApp=document.getElementById("openApp");
