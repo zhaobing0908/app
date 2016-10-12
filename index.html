@@ -67,12 +67,23 @@
 									alert("请点击右上角按钮，使用浏览器打开")
 
 								}else{
-									window.location.href = "wake://";
-
-									window.onunload=function(){
-										wClose()
-									}
 									
+									window.onbeforeunload = function()  //author: meizz
+									{
+										var n = window.event.screenX - window.screenLeft;
+										var b = n > document.documentElement.scrollWidth-20;
+										if(b && window.event.clientY < 0 || window.event.altKey)
+										{
+											alert("是关闭");
+											//  window.event.returnValue = "www";  //这里可以放置你想做的操作代码
+										}
+										else
+										{
+											alert("是刷新");
+											window.location.href = "wake://";
+										}
+
+									}
 
 								}
 
