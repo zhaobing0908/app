@@ -67,9 +67,12 @@
 									alert("请点击右上角按钮，使用浏览器打开")
 
 								}else{
+
+									if(window.location.href=="wake://"||"wake://".indexOf(window.location.href)>-1){
+										wClose();
+									}
 									window.location = "wake://";
-									wClose();
-									return;
+
 								}
 
 
