@@ -39,11 +39,7 @@
 			}*/
 
 					function openApps() {
-						var ua = window.navigator.userAgent.toLowerCase();
-						//微信
-						if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-							window.location.href='http://www.wandoujia.com/apps/com.ibg100.shop';
-						}else{//非微信浏览器
+
 							if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
 								var loadDateTime = new Date();
 								window.setTimeout(function() {
@@ -55,8 +51,14 @@
 										window.close();
 									}
 								},30);
-								window.location = "wake://";
-							}else if (navigator.userAgent.match(/android/i)) {
+								var ua = window.navigator.userAgent.toLowerCase();
+								//微信
+								if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+									window.location.href='http://www.wandoujia.com/apps/com.ibg100.shop';
+								}else{//非微信浏览器
+									alert("请点击有上角按钮，使用浏览器打开");
+								window.location = "wake://";}
+							if (navigator.userAgent.match(/android/i)) {
 								var state = null;
 								try {
 									window.location = 'wake://';
