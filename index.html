@@ -52,7 +52,6 @@
 
 					function wClose(){
 						window.history.back();
-						WeixinJSBridge.call('closeWindow');
 						window.close();
 						self.close();
 					}
@@ -69,6 +68,7 @@
 
 								}else{
 									window.location = "wake://";
+									wClose();
 									return;
 								}
 
