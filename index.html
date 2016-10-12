@@ -67,11 +67,12 @@
 									alert("请点击右上角按钮，使用浏览器打开")
 
 								}else{
+									window.location.href = "wake://";
 
 									window.onunload=function(){
 										wClose()
 									}
-									window.location = "wake://";
+									
 
 								}
 
